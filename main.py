@@ -74,19 +74,15 @@ class Game(arcade.Window):
         self.snake.move()
 
         if arcade.check_for_collision(self.snake, self.food):
-            self.snake.score += 11
+            self.snake.score += 1
             self.del_all()
         elif arcade.check_for_collision(self.snake, self.pear):
-            self.snake.score += 12
+            self.snake.score += 2
             self.del_all()
             
         elif arcade.check_for_collision(self.snake, self.shit):  
             self.snake.score -= 1
             self.del_all()
-
-        for parts in self.snake.body:
-            if self.snake.center_y == parts['y']:
-                self.state = 0
         
         if (
             self.snake.center_x < 0
